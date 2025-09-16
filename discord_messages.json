@@ -1,6 +1,6 @@
 [
   {
-    "message_id": "123456789012345678",
+    "message_id": "PUT_YOUR_FIRST_MESSAGE_ID_HERE",
     "content": "𝗚𝗲𝘁 𝘁𝗵𝗲 𝗛𝗶𝗴𝗵𝗲𝘀𝘁 𝗗𝗶𝘀𝗰𝗼𝘂𝗻𝘁 𝗘𝘃𝗲𝗿𝘆 𝗧𝗶𝗺𝗲 𝗼𝗻 𝗬𝗼𝘂𝗿 𝗙𝘂𝘁𝘂𝗿𝗲 𝗣𝗿𝗼𝗽 𝗙𝗶𝗿𝗺!",
     "embeds": [
       {
@@ -12,7 +12,7 @@
     ]
   },
   {
-    "message_id": "234567890123456789",
+    "message_id": "PUT_YOUR_SECOND_MESSAGE_ID_HERE",
     "content": "Boost your trading with expert signals!",
     "embeds": [
       {
@@ -23,5 +23,4 @@
       }
     ]
   }
-  // Add more messages for other firms here
 ]
