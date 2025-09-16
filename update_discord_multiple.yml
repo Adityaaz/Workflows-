@@ -1,0 +1,26 @@
+name: Update Multiple Discord Messages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Update all Discord messages
+        run: |
+          DISCORD_WEBHOOK="${{ secrets.DISCORD_WEBHOOK_URL }}"
+          for row in $(jq -c '.[]' discord_messages.json); do
+            MESSAGE_ID=$(echo $row | jq -r '.message_id')
+            echo $row | jq '{content: .content, embeds: .embeds}' > temp_payload.json
+            curl -X PATCH "$DISCORD_WEBHOOK/messages/$MESSAGE_ID" \
+                 -H "Content-Type: application/json" \
+                 -d @temp_payload.json
+            echo "Updated message $MESSAGE_ID"
+          done
+        shell: bash
