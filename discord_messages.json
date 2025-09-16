@@ -1,0 +1,27 @@
+[
+  {
+    "message_id": "123456789012345678",
+    "content": "𝗚𝗲𝘁 𝘁𝗵𝗲 𝗛𝗶𝗴𝗵𝗲𝘀𝘁 𝗗𝗶𝘀𝗰𝗼𝘂𝗻𝘁 𝗘𝘃𝗲𝗿𝘆 𝗧𝗶𝗺𝗲 𝗼𝗻 𝗬𝗼𝘂𝗿 𝗙𝘂𝘁𝘂𝗿𝗲 𝗣𝗿𝗼𝗽 𝗙𝗶𝗿𝗺!",
+    "embeds": [
+      {
+        "title": "My Funded Futures",
+        "description": "Get funded and start trading futures with ease!\n**Discount Code:** PERK (25% OFF)",
+        "url": "https://myfundedfutures.com/?ref=4996",
+        "color": 3447003
+      }
+    ]
+  },
+  {
+    "message_id": "234567890123456789",
+    "content": "Boost your trading with expert signals!",
+    "embeds": [
+      {
+        "title": "Take Profit Trader",
+        "description": "**Discount Code:** ADI (40% OFF)",
+        "url": "https://takeprofittrader.com/?referralCode=ADI",
+        "color": 3447003
+      }
+    ]
+  }
+  // Add more messages for other firms here
+]
