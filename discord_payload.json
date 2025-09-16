@@ -1,24 +1,38 @@
-name: Update Discord Webhook
+name: Update Discord Message
 
 on:
   push:
     branches:
-      - main  # Run whenever you push to main branch
+      - main
 
 jobs:
-  discord:
+  update-message:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Send JSON to Discord Webhook
-        uses: joelwmale/discord-webhook@v2
-        with:
-          url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          content: ${{ steps.read_payload.outputs.content }}
-
-      - name: Read JSON payload
-        id: read_payload
+      - name: Prepare JSON payload
+        id: prepare_payload
         run: |
-          echo "content=$(cat discord_payload.json)" >> $GITHUB_OUTPUT
+          cat <<EOF > payload.json
+          {
+            "content": "Updated message content",
+            "embeds": [
+              {
+                "title": "Updated Embed Title",
+                "description": "Updated embed description",
+                "color": 3447003
+              }
+            ]
+          }
+          EOF
+        shell: bash
+
+      - name: Update message in Discord
+        run: |
+          curl -X PATCH "${{ secrets.DISCORD_WEBHOOK_URL }}/messages/${{ secrets.DISCORD_MESSAGE_ID }}" \
+          -H "Content-Type: application/json" \
+          -d @payload.json
+        shell: bash
